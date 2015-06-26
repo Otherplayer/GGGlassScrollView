@@ -13,11 +13,6 @@ const CGFloat BlackSideBarWidth = 2;
 #define kGlassViewStartTag 666
 
 @interface GGGlassScrollView ()<UIScrollViewAccessibilityDelegate>
-{
-    GGGlassView *glass1;
-    GGGlassView *glass2;
-    GGGlassView *glass3;
-}
 @property (nonatomic, strong) UIScrollView *scrollView;
 @end
 
