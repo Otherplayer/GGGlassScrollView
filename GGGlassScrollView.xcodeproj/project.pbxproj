@@ -72,6 +72,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		63BC08D01B3D74DC00BC8AB4 /* Glass */ = {
+			isa = PBXGroup;
+			children = (
+				63EB148C1B2FFBBC005059F1 /* GGGlassView.h */,
+				63EB148D1B2FFBBC005059F1 /* GGGlassView.m */,
+				63EB14891B2FF9E0005059F1 /* GGGlassScrollView.h */,
+				63EB148A1B2FF9E0005059F1 /* GGGlassScrollView.m */,
+			);
+			name = Glass;
+			sourceTree = "<group>";
+		};
 		63EB14541B2FF935005059F1 = {
 			isa = PBXGroup;
 			children = (
@@ -93,18 +104,12 @@
 		63EB145F1B2FF935005059F1 /* GGGlassScrollView */ = {
 			isa = PBXGroup;
 			children = (
+				63BC08D01B3D74DC00BC8AB4 /* Glass */,
 				63EB14641B2FF935005059F1 /* AppDelegate.h */,
 				63EB14651B2FF935005059F1 /* AppDelegate.m */,
 				63EB14671B2FF935005059F1 /* ViewController.h */,
 				63EB14681B2FF935005059F1 /* ViewController.m */,
-				63EB148C1B2FFBBC005059F1 /* GGGlassView.h */,
-				63EB148D1B2FFBBC005059F1 /* GGGlassView.m */,
-				63EB14891B2FF9E0005059F1 /* GGGlassScrollView.h */,
-				63EB148A1B2FF9E0005059F1 /* GGGlassScrollView.m */,
-				63A135CA1B3D5CC700A22270 /* Image.png */,
 				63EB146A1B2FF935005059F1 /* Main.storyboard */,
-				63A135CC1B3D5CDA00A22270 /* Image2.png */,
-				63A135CE1B3D5CF800A22270 /* Image3.png */,
 				63EB146D1B2FF935005059F1 /* Images.xcassets */,
 				63EB146F1B2FF935005059F1 /* LaunchScreen.xib */,
 				63EB14601B2FF935005059F1 /* Supporting Files */,
@@ -115,6 +120,9 @@
 		63EB14601B2FF935005059F1 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				63A135CA1B3D5CC700A22270 /* Image.png */,
+				63A135CC1B3D5CDA00A22270 /* Image2.png */,
+				63A135CE1B3D5CF800A22270 /* Image3.png */,
 				63EB14611B2FF935005059F1 /* Info.plist */,
 				63EB14621B2FF935005059F1 /* main.m */,
 			);
@@ -373,6 +381,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = GGGlassScrollView/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
