@@ -14,6 +14,7 @@ const CGFloat BlackSideBarWidth = 2;
 
 @interface GGGlassScrollView ()<UIScrollViewAccessibilityDelegate>
 @property (nonatomic, strong) UIScrollView *scrollView;
+@property (nonatomic, strong) UIButton *goButton;
 @end
 
 @implementation GGGlassScrollView
@@ -44,6 +45,8 @@ const CGFloat BlackSideBarWidth = 2;
         [self.scrollView addSubview:glassView];
     }
     
+    [self.goButton setFrame:CGRectMake(width * (items.count - 1) + 20, CGRectGetHeight(self.bounds) - 100, CGRectGetWidth(self.bounds) - 40, 44)];
+    
 }
 
 
@@ -60,6 +63,14 @@ const CGFloat BlackSideBarWidth = 2;
     [self.scrollView setPagingEnabled:YES];
     [self addSubview:self.scrollView];
     
+    self.goButton = [[UIButton alloc] initWithFrame:CGRectMake(20, self.frame.size.height - 100, self.frame.size.width - 40, 44)];
+    [self.scrollView addSubview:self.goButton];
+    [self.goButton setBackgroundColor:[UIColor redColor]];
+    [self.goButton setTitle:@"Go~~~~" forState:UIControlStateNormal];
+    [self.scrollView bringSubviewToFront:self.goButton];
+    [self.goButton setAlpha:0];
+    [self.goButton addTarget:self action:@selector(goAction:) forControlEvents:UIControlEventTouchUpInside];
+    
 }
 
 
@@ -71,6 +82,15 @@ const CGFloat BlackSideBarWidth = 2;
     CGFloat ratio = scrollView.contentOffset.x/scrollView.frame.size.width;
     int _page = (int)floor(ratio);
     NSLog(@"%i===%f",_page,ratio);
+    
+    [UIView animateWithDuration:0.75 animations:^{
+        if (_page > self.items.count - 2) {
+            [self.scrollView bringSubviewToFront:self.goButton];
+            [self.goButton setAlpha:0.7];
+        }else{
+            [self.goButton setAlpha:0];
+        }
+     }];
     
     
     if ((ratio > (_page - 1)) && (ratio < (_page + 1))) {
@@ -88,9 +108,16 @@ const CGFloat BlackSideBarWidth = 2;
         [glassView scrollHorizontalRatio:-ratio + _page + 2];
     }
     
-    
 }
 
+
+#pragma mark - Action
+
+- (void)goAction:(id)sender{
+    if (self.clickedBlock) {
+        self.clickedBlock();
+    }
+}
 
 
 
